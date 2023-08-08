@@ -9,9 +9,9 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            key: ${{ secrets.KEY }}
-            port: ${{ secrets.PORT }}
-            script: |
-              cd /var/www/cm2.fi
-              git pull
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/cm2.fi
+            git pull
