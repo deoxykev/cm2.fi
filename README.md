@@ -1,6 +1,7 @@
-# cm2.fi
+# ㎠.ﬁ
 - Personal script/files hosting
-- URL redirector service (`cm2.fi/test`)
+- World's shortest URL redirector service using IDN normalization at
+  5 characters (`㎠.ﬁ/test`)
 - http localhost ssh forwarding tunnel to `https://x.cm2.fi` with SSL
 
 ## Usage
