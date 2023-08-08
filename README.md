@@ -2,6 +2,7 @@
 - Personal script/files hosting
 - World's shortest URL redirector service using IDN normalization at
   5 characters (`㎠.ﬁ/test`)
+  - Also will archive shortlinked URLs using the wayback machine
 - http localhost ssh forwarding tunnel to `https://x.cm2.fi` with SSL
 
 ## Usage
