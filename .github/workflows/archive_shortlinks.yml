@@ -15,12 +15,26 @@ jobs:
     - name: Archive URLs in changed files
       run: |
         # Get list of changed files
-        CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep 'shorturls/')
+        CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep 'shorturls/') || {
+          echo "Error getting changed files. Exiting."
+          exit 1
+        }
         for file in $CHANGED_FILES; do
+          if [ ! -f "$file" ]; then
+            echo "File $file not found. Skipping."
+            continue
+          fi
+
           # Read URL from each file
-          URL=$(cat $file)
+          URL=$(cat $file) || {
+            echo "Error reading file $file. Skipping."
+            continue
+          }
           echo "Archiving URL: $URL"
 
           # Submit URL to the Wayback Machine for archival
-          curl -s "https://web.archive.org/save/$URL"
+          curl -s "https://web.archive.org/save/$URL" || {
+            echo "Error archiving $URL. Continuing with next URL."
+            continue
+          }
         done
