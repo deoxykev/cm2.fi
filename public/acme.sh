@@ -13,6 +13,11 @@ GOACME_DL="https://github.com/go-acme/lego/releases/download/v4.13.3/lego_v4.13.
 #export LETSENCRYPT_EMAIL="xxxxxxxxxxxxxxx"
 #export DOMAINS="*.xxxxxxxxxxxxxx"
 
+if [ -z "$CLOUDLARE_DNS_API_TOKEN" ];
+  echo "[-] specify the environment variables first"
+  exit 1
+fi
+
 set -xe
 TMP=$(mktemp --directory)
 WD="$(pwd)"
@@ -57,4 +62,14 @@ else
   crontab -l | { cat; echo "$CRONJOB"; } | crontab -
 fi
 
+cat << EOF
+=======================================================================
+
+certs are found in: $WD/.lego/certificates/
+
+pubkey: $DOMAINS.crt
+privkey: $DOMAINS.key
+
+=======================================================================
+EOF
 exit 0
