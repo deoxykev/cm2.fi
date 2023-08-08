@@ -1,0 +1,26 @@
+name: Archive URLs
+
+on:
+  push:
+    paths:
+    - 'shorturls/**'
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Archive URLs in changed files
+      run: |
+        # Get list of changed files
+        CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep 'shorturls/')
+        for file in $CHANGED_FILES; do
+          # Read URL from each file
+          URL=$(cat $file)
+          echo "Archiving URL: $URL"
+
+          # Submit URL to the Wayback Machine for archival
+          curl -s "https://web.archive.org/save/$URL"
+        done
