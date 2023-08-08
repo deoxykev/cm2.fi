@@ -1,5 +1,7 @@
 # cm2.fi
-Personal scripts / URL redirector service
+- Personal scripts hosting
+- URL redirector service (`cm2.fi/test`)
+- http localhost ssh forwarding tunnel to `https://x.cm2.fi` with SSL
 
 ## Usage
 - Files in `shorturls/` should contain a URL.
