@@ -15,3 +15,5 @@ jobs:
           script: |
             cd /var/www/cm2.fi
             git pull
+            cp nginx/cm2.fi.conf /etc/nginx/sites-available/cm2.fi.conf
+            sudo systemctl restart nginx
