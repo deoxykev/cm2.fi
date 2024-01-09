@@ -32,7 +32,7 @@ default-root-container-layout = 'tiles'
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
+default-root-container-orientation = 'vertical'
 
 gaps.inner.horizontal = 0
 gaps.inner.vertical =   0
@@ -88,10 +88,10 @@ alt-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-ar
 alt-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands.html#move-through
-alt-shift-h = 'move-through left'
+alt-shift-h = 'move-workspace-to-monitor-prev'
 alt-shift-j = 'move-through down'
 alt-shift-k = 'move-through up'
-alt-shift-l = 'move-through right'
+alt-shift-l = 'move-workspace-to-monitor-next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands.html#resize
 alt-shift-minus = 'resize smart -50'
