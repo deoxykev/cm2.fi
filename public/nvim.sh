@@ -4,15 +4,15 @@ set -ex
 # Function to install packages using detected package manager
 install_packages() {
     if command -v apt >/dev/null; then
-        sudo apt install git cmake -y
+        sudo apt install git cmake gettext -y
     elif command -v yum >/dev/null; then
-        sudo yum install git cmake -y
+        sudo yum install git cmake gettext -y
     elif command -v dnf >/dev/null; then
-        sudo dnf install git cmake -y
+        sudo dnf install git cmake gettext -y
     elif command -v pacman >/dev/null; then
-        sudo pacman -S --noconfirm git cmake
+        sudo pacman -S --noconfirm git cmake gettext
     elif command -v zypper >/dev/null; then
-        sudo zypper install git cmake
+        sudo zypper install git cmake gettext
     elif command -v brew >/dev/null; then
         brew install git cmake
     else
