@@ -30,7 +30,7 @@ sudo make install
 
 # Clone and install AstroNvim
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-curl -L https://cm2.fi/init.lua --ouput ~/.config/nvim/init.lua
+curl -L https://cm2.fi/init.lua --output ~/.config/nvim/init.lua
 
 echo "[+] Done run nvim to get started"
 exit 0 
